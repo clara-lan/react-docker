@@ -1,0 +1,16 @@
+# use .dev to ensure this file is only used in dev environment
+# base image node:alpine
+FROM node:alpine
+
+WORKDIR '/app'
+
+#copy pakage.json to working directory
+COPY package.json .
+RUN npm install
+
+# copy all code from outside direc to target docker container
+# duplicate with .yml line 13 volumes but still need to keep this
+# because 1. it could be used to set up production dockerfile; 2. may drop .yml oneday
+COPY . .
+
+CMD ["npm", "run", "start"]

@@ -1,0 +1,24 @@
+version: '3'
+services: #services define containers for need
+  web: # container for web
+    #build . assume a dockerfile exist in current direct(we have Dockerfile.dev)
+    build: 
+      # context define where projects come from, now react project is in current directory so . works
+      context: . 
+      # location of the dockerfile, will construct image of services with this dockerfile
+      dockerfile: Dockerfile.dev
+    ports: 
+     # outside port : container port
+      - "3000:3000"
+    volumes: 
+      - /app/node_modules
+      #outside current folder : app folder in container
+      - .:/app
+  tests: # 2nd container for tests
+    build: 
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes: 
+      - /app/node_modules
+      - .:/app
+    command:  ["npm", "run", "test"]
