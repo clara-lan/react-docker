@@ -2,7 +2,7 @@
 # base image node:alpine
 FROM node:alpine
 
-WORKDIR '/app'
+WORKDIR '/home/app'
 
 #copy pakage.json to working directory
 COPY package.json .
