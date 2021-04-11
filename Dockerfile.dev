@@ -1,9 +1,7 @@
 # use .dev to ensure this file is only used in dev environment
 # base image node:alpine
 FROM node:alpine
-
-WORKDIR '/home/app'
-
+WORKDIR '/app'
 #copy pakage.json to working directory
 COPY package.json .
 RUN npm install
