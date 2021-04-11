@@ -6,7 +6,7 @@ services:
 before_install:
 #build docker before run this image
 # tagname convention:gitId or dockerID/ name of git repo(this tag will only be used in travisCI so nomatter what it's called just a good convention)
-  - docker build -t clara-lan/react-docker -f Dockerfile.dev .
+  - docker build frontend -t clara-lan/react-docker -f Dockerfile.dev .
 
 script: 
   - docker run -e CI=true clara-lan/react-docker npm run test
