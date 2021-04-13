@@ -10,3 +10,21 @@ before_install:
 
 script: 
   - docker run -e CI=true clara-lan/react-docker npm run test
+
+
+deploy:
+  # tell travisCI to deploy on elasticbeanstalk
+  provider: elasticbeanstalk
+  # all values are taken from aws elasticbeanstalk built app
+  region: "us-east-2"
+  app: "react-docker"
+  env: "Reactdocker-env"
+  # for travis: take files from git, zip and copy them to a S3 bucket
+  bucket_name: "elasticbeanstalk-us-east-2-405206474361"
+  bucket_path: "react-docker" #same as app name
+  #specify deploy branch
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: $AWS_SECRET_KEY
