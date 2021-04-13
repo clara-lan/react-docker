@@ -17,11 +17,11 @@ deploy:
   provider: elasticbeanstalk
   # all values are taken from aws elasticbeanstalk built app
   region: "us-east-2"
-  app: "Docker"
-  env: "Docker-env"
+  app: "Docker2"
+  env: "Docker2-env"
   # for travis: take files from git, zip and copy them to a S3 bucket
   bucket_name: "elasticbeanstalk-us-east-2-405206474361"
-  bucket_path: "Docker" #same as app name
+  bucket_path: "Docker2" #same as app name
   #specify deploy branch
   on:
     branch: master
