@@ -18,6 +18,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <body>
+        <div>
+          Test change
+        </div>
+      </body>
     </div>
   );
 }
